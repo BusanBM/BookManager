@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서 관리</title>
+    <link rel="stylesheet" href="css/search_result.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="top_head">
+          <h1><a href="index.html">LOGO</a></h1>
+          <form class="search" action="#" method="get">
+            <input type="text" name="search_word" size="50" />
+            <input
+              type="image"
+              src="./images/search.png"
+              onfocus="'this.blur()'"
+            />
+          </form>
+          <div class="log_in">
+            <a class="button" href="login.jsp">로그인</a>
+            <a class="button" href="join.jsp">회원가입</a>
+          </div>
+        </div>
+        <!--top_head END-->
+      </header>
+
+      <section class="result">
+        <div class="inner">
+          <h2>###에 대한 검색결과 입니다.</h2>
+        </div>
+      </section>
+
+      <section class="list">
+        <div class="inner">
+          <table class="descript">
+            <tr>
+              <th colspan="2"><span class="under_line">책 소개</span></th>
+              <th><span class="under_line">가격</span></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>
+                <div class="image"><img src="images/book1.jpg" /></div>
+              </td>
+              <td>
+                <div class="description">
+                  <div class="title"><a href="#">책제목</a></div>
+                  <div class="detail_desc">
+                    <div class="author"><a href="#">작가</a></div>
+                    &nbsp;
+                    <div class="category"><a href="#">장르</a></div>
+                    &nbsp;
+                    <div class="book_year"><a href="#">출판년도</a></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="price">가격</div>
+              </td>
+              <td>
+                <div class="detail_button"><a href="#">상세보기</a></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>
