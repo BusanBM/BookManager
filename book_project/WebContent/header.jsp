@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
+<!--    	<div class="login_wrap">
+    	<div class="login">
+           <ul>
+               <li><a href="#">로그인</a></li>
+               <li><a href="#">회원가입</a></li>
+               <li><a href="#">출석체크</a></li>
+           </ul>
+       	</div>
+   	</div> -->      
       <div class="container">
         <div class="row">
           <div class="logo col-sm-3">

@@ -1,8 +1,7 @@
 package book_project;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -125,5 +124,45 @@ public class BookDBBean {
 		return bookList;
 	}
 	
-	//상세보기를 눌렀을때 뱉어낼
+	//상세보기를 눌렀을때 BookBean을 반환
+	public BookBean getBook(int b_no) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql="SELECT * FROM BOOK_LIST WHERE B_NO = ?"; //해당 책의 번호
+		BookBean book = null;
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, b_no);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				book = new BookBean();
+				book.setB_title(rs.getString(2));
+				book.setB_author(rs.getString(3));
+				book.setB_genre(rs.getString(4));
+				book.setB_price(rs.getInt(5));
+				book.setB_story(rs.getString(6));
+				book.setB_year(rs.getInt(7));
+				book.setB_list(rs.getString(8));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(con!=null) con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return book;
+	}
+	
+	
 }

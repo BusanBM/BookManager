@@ -10,7 +10,7 @@
 	BookDBBean db = BookDBBean.getinstance();
 	ArrayList<BookBean> listBook =  db.listBoard(search_word);
 	String b_author, b_genre, b_title, b_list, b_story;
-	int b_price=0 , b_year=0;
+	int b_price=0 , b_year=0, b_no=0;
 %>
 <!DOCTYPE html>
 <html>
@@ -47,6 +47,7 @@
 <%
     	for(int i=0; i<listBook.size(); i++){
     		BookBean book = listBook.get(i);
+    		b_no = book.getB_no();
     		b_title = book.getB_title();
     		b_author = book.getB_author();
     		b_genre = book.getB_genre();
@@ -73,7 +74,7 @@
               </td>
               <td><%=b_price%>원</td>
               <td>
-                <a href="#" class="btn btn-primary" role="button">상세보기</a>
+                <a href="detail_book.jsp?b_no=<%=b_no%>" class="btn btn-primary" role="button">상세보기</a>
               </td>
             </tr>
 <%
