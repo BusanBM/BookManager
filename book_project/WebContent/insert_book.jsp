@@ -10,6 +10,7 @@
 <script type="text/javascript" src="./resources/js/book.js"></script>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
     <main>
       <div class="jumbotron">
         <div class="container">

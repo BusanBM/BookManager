@@ -4,10 +4,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	//검색어를 utf-8로 인코딩하여 받는다.
 	request.setCharacterEncoding("utf-8");
+	//검색어를 변수 search_word에 넣는다.
 	String search_word = request.getParameter("search_word");
 	
+	//BookDBBean을 이용하기 위해 인스턴스를 생성한다.
 	BookDBBean db = BookDBBean.getinstance();
+	//listBoard()메소드로 db에 저장된 책 목록을 가져온다.
 	ArrayList<BookBean> listBook =  db.listBoard(search_word);
 	String b_author, b_genre, b_title, b_list, b_story;
 	int b_price=0 , b_year=0, b_no=0;
@@ -24,7 +28,9 @@
   </head>
   
   <body>
+  <!-- header.jsp로 향한다. -->
   <jsp:include page="header.jsp"></jsp:include>
+  <!-- 검색결과를 나타낸다. (추후, 검색결과가 없을때 '검색결과 없음'이 생성되게 변경) -->
     <main>
       <div class="jumbotron">
         <div class="container">
@@ -32,7 +38,7 @@
         </div>
       </div>
     </main>
-    
+  <!-- 책 목록을 보여줄 부분 -->
     <section class="main_result">
       <div class="container">
         <table class="table">
@@ -84,6 +90,7 @@
         </table>
       </div>
     </section>
+    <!-- footer.jsp로 향한다. -->
   <jsp:include page="footer.jsp"></jsp:include>
   </body>
 </html>

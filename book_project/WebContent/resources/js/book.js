@@ -30,3 +30,12 @@ function insert_ok(){
 	}
 	document.form.submit();
 }
+
+function sum(){
+	var temp;
+	var input = document.getElementById("b_quantity").value;
+	temp = input;
+	var price = "<%=b_price%>";
+	var sum = price * temp;
+	document.getElementById("total_price").value = sum;
+}

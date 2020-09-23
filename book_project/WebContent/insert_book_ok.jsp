@@ -12,7 +12,12 @@
 	int re = db.insertBook(book);
 	
 	if(re == 1){
-		response.sendRedirect("index.jsp");
+%>
+		<script>
+			alert('입력이 완료되었습니다.');
+			location.href='insert_book.jsp';
+		</script>
+<%
 	}else{
 %>
 		<script>

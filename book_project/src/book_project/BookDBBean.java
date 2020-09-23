@@ -8,6 +8,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
+
 public class BookDBBean {
 	private static BookDBBean instance = new BookDBBean();
 	
@@ -22,11 +24,23 @@ public class BookDBBean {
 		return ds.getConnection();
 	}
 	
-	public Connection getConnection1() throws Exception{
-		Context ctx = new InitialContext();
-		Context envctx = (Context)ctx.lookup("java:comp/env");
-		DataSource ds = (DataSource)envctx.lookup("jdbc/MySQLDB");
-		return ds.getConnection();
+	public static Connection getMySQLConnection() {
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://192.168.0.156:3306/mydb?useSSL=false&useUnicode=true&characterEncoding=utf-8";
+			String user = "busan";
+			String password = "busanit";
+			conn = DriverManager.getConnection(url, user, password);
+		}catch (ClassNotFoundException e) {
+			System.out.println("MySQL 드라이버가 없습니다.");
+		}catch (MySQLDataException e) {
+			System.out.println("데이터베이스가 없습니다.");
+		}catch (SQLException e) {
+			System.out.println("사용자 계정 또는 비밀번호가 일치하지 않습니다.");
+		}
+		return conn;
 	}
 	
 	//insert_book.jsp에서 받은 정보를 insert_book_ok.jsp에서 데이터베이스 입력
@@ -39,10 +53,10 @@ public class BookDBBean {
 		int num = 0; //B_NO
 		
 		try {
-			con = getConnection();
+			con = getMySQLConnection();
 			
 			//B_NO 부여(추후 장르별로 B_NO부여 할 예정)//
-			sql = "SELECT MAX(B_NO) FROM BOOK_LIST";
+			sql = "SELECT MAX(B_NO) FROM BookList";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -54,7 +68,7 @@ public class BookDBBean {
 			}
 			
 			//DB에 데이터를 입력
-			sql = "INSERT INTO BOOK_LIST(B_NO, B_TITLE, B_AUTHOR, B_GENRE, B_PRICE"
+			sql = "INSERT INTO BookList(B_NO, B_TITLE, B_AUTHOR, B_GENRE, B_PRICE"
 					+ ", B_STORY, B_YEAR, B_LIST) VALUES(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -86,12 +100,12 @@ public class BookDBBean {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql="SELECT * FROM BOOK_LIST WHERE b_title LIKE ? "
+		String sql="SELECT * FROM BookList WHERE b_title LIKE ? "
 				+ "OR b_author LIKE ?";
 		ArrayList<BookBean> bookList = new ArrayList<BookBean>();
 		
 		try {
-			con = getConnection();
+			con = getMySQLConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+search_word+"%");
 			pstmt.setString(2, "%"+search_word+"%");
@@ -130,11 +144,11 @@ public class BookDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql="SELECT * FROM BOOK_LIST WHERE B_NO = ?"; //해당 책의 번호
+		String sql="SELECT * FROM BookList WHERE B_NO = ?"; //해당 책의 번호
 		BookBean book = null;
 		
 		try {
-			con = getConnection();
+			con = getMySQLConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, b_no);
 			rs = pstmt.executeQuery();
