@@ -1,0 +1,21 @@
+﻿cs_no,cs_id,cs_pwd,cs_name,cs_tel,cs_address,cs_email,cs_favorite,cs_grade,cs_point
+1,sailer01,a1234,김동완,01055427979,부산시 수영로 784-22,dongwan@naver.com,과학,S,5000
+2,moon99,a1234,박성희,01077852153,부산시 영도구 784-13,shpark99@naver.com,예술,G,12000
+3,taka72,a1234,임시완,01077852154,부산시 영도구 784-14,dongwan@naver.com,정치,B,1000
+4,samsam34,a1234,임영웅,01077852155,부산시 영도구 784-15,shpark99@naver.com,경제,S,5000
+5,gugu33,a1234,이순철,01077852156,부산시 수영로 784-22,dongwan@naver.com,예술,G,12000
+6,sono2,a1234,박성식,01077852155,부산시 영도구 784-17,shpark99@naver.com,과학,B,2000
+7,gaga7,1111,김희관,01077852158,부산시 영도구 784-18,dongwan@naver.com,예술,G,12000
+8,papa33,a1234,마동석,01077852159,부산시 수영로 784-22,shpark99@naver.com,정치,B,1500
+9,bird74,a1234,진희철,01077852155,부산시 영도구 784-20,dongwan@naver.com,경제,S,5000
+10,paldo88,1111,박미영,01077852161,부산시 영도구 784-21,shpark99@naver.com,예술,G,12000
+11,rail33,a1234,김순영,01077852162,부산시 수영로 784-22,dongwan@naver.com,과학,G,12000
+12,rabit1,a1234,진시몬,01077852163,부산시 영도구 784-23,shpark99@naver.com,예술,B,500
+13,carot22,a1234,박광진,01077852155,부산시 영도구 784-24,dongwan@naver.com,정치,S,5000
+14,mountain3,1111,김희영,01077852165,부산시 수영로 784-22,shpark99@naver.com,경제,G,12000
+15,gain22,a1234,오수영,01077852166,부산시 영도구 784-26,dongwan@naver.com,예술,G,12000
+16,sachil3,a1234,이관희,01077852167,부산시 영도구 784-27,shpark99@naver.com,과학,B,2000
+17,paper12,abcd1234,임선희,01077852168,부산시 영도구 784-28,dongwan@naver.com,예술,S,5000
+18,mouse1,a1234,김희선,01077852155,부산시 영도구 784-29,shpark99@naver.com,정치,G,12000
+19,pet78,a1234,마진성,01077852170,부산시 영도구 784-30,dongwan@naver.com,경제,G,12000
+20,cola94,a1234,곽진언,01077852171,부산시 수영로 784-22,shpark99@naver.com,예술,S,5000
