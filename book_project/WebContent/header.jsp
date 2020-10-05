@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
     <div class="container">
       <div class="login">
         <ul>
-          <li><a href="#">로그인</a></li>
+          <li><a href="login.jsp">로그인</a></li>
           <li><a href="#">회원가입</a></li>
           <li><a href="#">출석체크</a></li>
         </ul>

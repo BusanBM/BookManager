@@ -3,7 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	//search_result에서 넘겨받은 b_no
 	int b_no = Integer.parseInt(request.getParameter("b_no"));
+
 	BookDBBean db = BookDBBean.getinstance();
 	BookBean book = db.getBook(b_no);
 	int b_price = book.getB_price();

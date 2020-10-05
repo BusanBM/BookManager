@@ -24,6 +24,7 @@ public class BookDBBean {
 		return ds.getConnection();
 	}
 	
+	//mysql에 접속
 	public static Connection getMySQLConnection() {
 		Connection conn = null;
 		
@@ -43,6 +44,13 @@ public class BookDBBean {
 		return conn;
 	}
 	
+	//커넥션 풀로 mysql접속
+	public Connection getMySQLConnection1() throws Exception {
+		Context context = new InitialContext();
+		DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/mysql");
+		return ds.getConnection();
+	}
+	
 	//insert_book.jsp에서 받은 정보를 insert_book_ok.jsp에서 데이터베이스 입력
 	public int insertBook(BookBean book) {
 		Connection con = null;
@@ -53,7 +61,7 @@ public class BookDBBean {
 		int num = 0; //B_NO
 		
 		try {
-			con = getMySQLConnection();
+			con = getMySQLConnection1();
 			
 			//B_NO 부여(추후 장르별로 B_NO부여 할 예정)//
 			sql = "SELECT MAX(B_NO) FROM BookList";
@@ -105,7 +113,7 @@ public class BookDBBean {
 		ArrayList<BookBean> bookList = new ArrayList<BookBean>();
 		
 		try {
-			con = getMySQLConnection();
+			con = getMySQLConnection1();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+search_word+"%");
 			pstmt.setString(2, "%"+search_word+"%");
@@ -148,7 +156,7 @@ public class BookDBBean {
 		BookBean book = null;
 		
 		try {
-			con = getMySQLConnection();
+			con = getMySQLConnection1();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, b_no);
 			rs = pstmt.executeQuery();
