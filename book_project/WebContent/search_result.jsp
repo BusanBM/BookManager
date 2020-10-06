@@ -9,10 +9,15 @@
 	//검색어를 변수 search_word에 넣는다.
 	String search_word = request.getParameter("search_word");
 	
+	String currentPage = request.getParameter("currentPage");
+	if(currentPage == null){
+		currentPage = "1";
+	}
+	
 	//BookDBBean을 이용하기 위해 인스턴스를 생성한다.
 	BookDBBean db = BookDBBean.getinstance();
 	//listBoard()메소드로 db에 저장된 책 목록을 가져온다.
-	ArrayList<BookBean> listBook =  db.listBoard(search_word);
+	ArrayList<BookBean> listBook =  db.listBoard(search_word,currentPage);
 	
 	String b_author, b_genre, b_title, b_list, b_story;
 	int b_price=0 , b_year=0, b_no=0;
@@ -92,8 +97,12 @@
 %>
           </tbody>
         </table>
+        <div class="paging_list" align="center">		
+			<%= BookBean.pageNumber(5, search_word) %>
+		</div>
       </div>
     </section>
+
     
     <!-- footer.jsp로 향한다. -->
   <jsp:include page="footer.jsp"></jsp:include>

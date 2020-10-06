@@ -114,6 +114,10 @@ header {
   transition: 0.1s;
 }
 
+.paging_list a{
+	display: inline;
+}
+
 /************* main *************/
 .jumbo_text {
   font-size: 20px;
