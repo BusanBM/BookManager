@@ -27,7 +27,9 @@ public class BookBean {
 		
 		//시작페이지가 블록보다 클때 [이전]을 표시 (시작페이지가 6부터 [이전]이 나온다.)
 		if((startPage - block)>0) {
-			str = "<a href='search_result.jsp?search_word="+search_word+"&currentPage="+(startPage-1)+"'><button type='button' value='이전'></a>&nbsp;&nbsp;";
+			str += "<a href='search_result.jsp?search_word="+search_word+"&currentPage="+(startPage-1)+"'>"
+					+ "<input type='button' value='이전'>"
+					+ "</a>&nbsp;&nbsp;";
 		}
 		
 		//시작페이지부터 끝페이지까지(1이상 6미만, 6이상 11미만...)
@@ -46,7 +48,9 @@ public class BookBean {
 		
 		//[다음]페이지 표시(마지막페이지에서는 [다음]이 안나와야 함.)
 		if((startPage + block)<=totalPage) {
-			str += "<a href='search_result.jsp?search_word="+search_word+"&currentPage="+(startPage+block)+"'><input type='button' value='다음'></a>";
+			str += "<a href='search_result.jsp?search_word="+search_word+"&currentPage="+(startPage+block)+"'>"
+					+ "<input type='button' value='다음'>"
+					+ "</a>";
 		}
 		return str;
 	}

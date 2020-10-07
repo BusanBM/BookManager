@@ -5,10 +5,10 @@
 <%
 	String currentPage = request.getParameter("currentPage");
 	//search_result에서 넘겨받은 b_no
-	int b_no = Integer.parseInt(request.getParameter("b_no"));
+	int book_no = Integer.parseInt(request.getParameter("book_no"));
 
 	BookDBBean db = BookDBBean.getinstance();
-	BookBean book = db.getBook(b_no);
+	BookBean book = db.getBook(book_no);
 	int b_price = book.getB_price();
 %>
 <!DOCTYPE html>
@@ -17,7 +17,8 @@
 <meta charset="UTF-8">
 <title>책 상세 정보</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-<link rel="stylesheet" href="resources/css/search_result.css" />
+<link rel="stylesheet" href="resources/css/book_project.css"/>
+<script type="text/javascript" src="resources/js/book.js"></script>
 </head>
 <jsp:include page="header.jsp"></jsp:include>
   <body>
@@ -45,27 +46,24 @@
               	판매가 : <span class="price_highlight"><%=b_price%></span>
               </div>
             </div>
+            
             <div class="detail_buy">
-           	 <form method="post" action="#">
-              <div class="quantity">
-               	 주문수량 :
-                <div class="col-sm-3">
-                  <input type="number" name="b_quantity" class="form-control" 
-                  			id="b_quantity" min="1" value="1" onchange="sum()" />
-                </div>
-                <div class="result_price">
-                	총 주문금액 : <input type="number" id="total_price">
-                </div>
+           	 <form method="post" action="#" class="form-inline">
+              <div class="form-group">
+               	<label for="b_quantity">주문수량 :</label>
+               	<input type="number" name="b_quantity" class="form-control" id="b_quantity" min="1" value="1"/>
               </div>
-              <p>
+              <div class="form-group">
                 <button class="btn btn-default" type="button">
                   	장바구니 담기
                 </button>
-                <button class="btn btn-primary" type="button">바로구매</button>
-              </p>
+                <button class="btn btn-primary" type="button">
+                	바로구매
+                </button>
+                </div>
               </form>
             </div>
-
+            
           </div>
         </div>
       </div>

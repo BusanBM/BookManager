@@ -20,7 +20,7 @@
 	ArrayList<BookBean> listBook =  db.listBoard(search_word,currentPage);
 	
 	String b_author, b_genre, b_title, b_list, b_story;
-	int b_price=0 , b_year=0, b_no=0;
+	int b_price=0 , b_year=0, book_no=0;
 %>
 <!DOCTYPE html>
 <html>
@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>검색결과</title>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="resources/css/search_result.css" />
+    <link rel="stylesheet" href="resources/css/book_project.css"/>
     <script type="text/javascript" src="resources/js/book.js"></script>
   </head>
   
@@ -61,7 +61,7 @@
 <%
     	for(int i=0; i<listBook.size(); i++){
     		BookBean book = listBook.get(i);
-    		b_no = book.getB_no();
+    		book_no = book.getB_no();
     		b_title = book.getB_title();
     		b_author = book.getB_author();
     		b_genre = book.getB_genre();
@@ -89,7 +89,7 @@
               <td><%=b_price%>원</td>
               <td>
               <!-- 책의 상세 내용 볼 수 있게 표현 -->
-                <a href="detail_book.jsp?b_no=<%=b_no%>" class="btn btn-primary" role="button">상세보기</a>
+                <a href="detail_book.jsp?book_no=<%=book_no%>" class="btn btn-primary" role="button">상세보기</a>
               </td>
             </tr>
 <%

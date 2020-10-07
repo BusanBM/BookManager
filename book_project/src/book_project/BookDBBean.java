@@ -58,17 +58,17 @@ public class BookDBBean {
 		ResultSet rs = null;
 
 		String sql="";
-		int num = 0; //B_NO
+		int num = 0; //book_no
 		
 		try {
 			con = getMySQLConnection1();
 			
-			//B_NO 부여(추후 장르별로 B_NO부여 할 예정)//
-			sql = "SELECT MAX(B_NO) FROM BookList";
+			//book_no 부여(추후 장르별로 book_no부여 할 예정)//
+			sql = "SELECT MAX(book_no) FROM BookList";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			//B_NO의 초기값을 100000으로 주고 추가되는 책들은 1씩 더한다.
+			//book_no의 초기값을 100000으로 주고 추가되는 책들은 1씩 더한다.
 			if(rs.next()) {
 				num = rs.getInt(1) + 1;
 			}else{
@@ -76,7 +76,7 @@ public class BookDBBean {
 			}
 			
 			//DB에 데이터를 입력
-			sql = "INSERT INTO BookList(B_NO, B_TITLE, B_AUTHOR, B_GENRE, B_PRICE"
+			sql = "INSERT INTO BookList(book_no, B_TITLE, B_AUTHOR, B_GENRE, B_PRICE"
 					+ ", B_STORY, B_YEAR, B_LIST) VALUES(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -119,7 +119,7 @@ public class BookDBBean {
 		
 		try {
 			con = getMySQLConnection1();
-			sql = "SELECT COUNT(b_no) FROM BookList WHERE b_title LIKE ? OR b_author LIKE ?";
+			sql = "SELECT COUNT(book_no) FROM BookList WHERE b_title LIKE ? OR b_author LIKE ?";
 			
 			//TYPE_SCROLL_SENSITIVE : SCROLL도 가능하면서 변경된 사항도 적용됨(양방향 스크롤시 업데이트 반영) 
 			//CONCUR_UPDATABLE : 커서의 위치에서 정보 업데이트 가능. 
@@ -163,7 +163,7 @@ public class BookDBBean {
 				//한페이지당 보여질 게시물까지만 반복한다.
 				while(count<BookBean.dataPerPage) {
 					BookBean book = new BookBean();
-					book.setB_no(rs.getInt("b_no"));
+					book.setB_no(rs.getInt("book_no"));
 					book.setB_title(rs.getString("b_title"));
 					book.setB_author(rs.getString("b_author"));
 					book.setB_genre(rs.getString("b_genre"));
@@ -198,29 +198,29 @@ public class BookDBBean {
 	}
 	
 	//상세보기를 눌렀을때 BookBean을 반환
-	public BookBean getBook(int b_no) {
+	public BookBean getBook(int book_no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql="SELECT * FROM BookList WHERE B_NO = ?"; //해당 책의 번호
+		String sql="SELECT * FROM BookList WHERE book_no = ?"; //해당 책의 번호
 		BookBean book = null;
 		
 		try {
 			con = getMySQLConnection1();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, b_no);
+			pstmt.setInt(1, book_no);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				book = new BookBean();
-				book.setB_title(rs.getString(2));
-				book.setB_author(rs.getString(3));
-				book.setB_genre(rs.getString(4));
-				book.setB_price(rs.getInt(5));
-				book.setB_story(rs.getString(6));
-				book.setB_year(rs.getInt(7));
-				book.setB_list(rs.getString(8));
+				book.setB_title(rs.getString("b_title"));
+				book.setB_author(rs.getString("b_author"));
+				book.setB_genre(rs.getString("b_genre"));
+				book.setB_price(rs.getInt("b_price"));
+				book.setB_story(rs.getString("b_story"));
+				book.setB_year(rs.getInt("b_year"));
+				book.setB_list(rs.getString("b_list"));
 			}
 			
 		} catch (Exception e) {
