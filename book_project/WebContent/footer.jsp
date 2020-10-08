@@ -12,7 +12,7 @@
         </div>
         <div class="col-sm-5">
           링크 <br>
-          <button class="button"><img src="resources/images/logo_kyobo.png"></button>
+          <button class="button"><a href="http://www.kyobobook.co.kr/"><img src="resources/images/logo_kyobo.png"></a></button>
         </div>
       </div>
     </footer>

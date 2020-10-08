@@ -21,8 +21,10 @@ th {
   text-align: center;
   vertical-align: middle;
 }
-
-/************* header *************/
+body {
+  height: 100%;
+}
+/************* header.jsp *************/
 header {
   text-align: center;
 }
@@ -113,21 +115,82 @@ header {
   display: block;
   transition: 0.1s;
 }
-
-.paging_list a{
-	display: inline;
-}
-
 /************* main *************/
 .jumbo_text {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 3px;
 }
+.main_visual {
+  height: 20vh;
+  background-color: rgba(0, 191, 255, 0.1);
+}
 
+/* section -book_display */
+.book_display {
+}
+.container h3 {
+  padding-left: 5px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.book_display_1 {
+  border: 1px solid #999;
+  height: 350px;
+  width: 250px;
+  display: flex;
+  padding: 25px;
+  flex-direction: column;
+}
+.book_display_1 p img{
+  width: 200px;
+  height: 250px;
+  margin-right: 50px;
+}
+.book_display_1 dl {
+  display: flex;
+  margin: 0 auto;
+  font-size: 10px;
+}
+.book_display_1 dt {
+  font-size: 15px;
+}
+
+.book_display_2 {
+  float: left;
+  width: 100%;
+}
+.book_display_2_1 {
+  display: inline-block;
+  width: 250px;
+  height: 350px;
+  padding: 25px;
+  margin: 0 auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #999;
+}
+.book_display_2_1 p img{
+  width: 200px;
+  height: 250px;
+  border: 1px solid #999
+  margin-right: 50px;
+}
+.book_display_2_1 dl {
+  text-align: center;
+  font-size: 5px;
+  margin-bottom: 0;
+}
+.book_display_2_1 dt {
+  font-size: 15px;
+}
+
+.best_seller {
+  margin-bottom: 30px;
+}
 /* section- main_result */
 .main_result {
-  height: 100vh;
+  height: 100%;
 }
 .detail_desc {
   display: flex;
@@ -137,6 +200,15 @@ header {
 .detail_desc div::after {
   content: "|";
   padding-left: 5px;
+}
+.paging_list {
+  color: #ff0000;
+}
+.paging_list a {
+  display: inline;
+}
+.paging_list a:hover {
+  font-weight: bold;
 }
 
 /************* footer *************/
@@ -203,31 +275,26 @@ footer .button img {
   margin-left: 10px;
 }
 .detail_price {
-	border-top:1px solid #ddd;
+  border-top: 1px solid #ddd;
   margin-top: 25px;
   padding-top: 25px;
   font-size: 16px;
 }
-.price_highlight{
-	font-size:25px;
-	font-weight: bold;
+.price_highlight {
+  font-size: 25px;
+  font-weight: bold;
 }
-.price_highlight:after{
-	content: "원";
-	font-size:20px;
+.price_highlight:after {
+  content: "원";
+  font-size: 20px;
 }
 .detail_buy {
-	border-top:1px solid #ddd;
+  border-top: 2px dotted #ddd;
   padding: 1.5em;
   background-color: rgba(245, 222, 179, 0.432);
 }
-.quantity {
-  display: flex;
-  font-size: 18px;
-  align-items: center;
-}
-.detail_buy > p {
-  padding-top: 2em;
+.detail_buy .form-group{
+	padding: 5px
 }
 .detail {
   margin-top: 50px;

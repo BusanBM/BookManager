@@ -6,10 +6,11 @@
 <meta charset="UTF-8">
 <title>도서등록페이지</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-<link rel="stylesheet" href="resources/css/search_result.css" />
+<link rel="stylesheet" href="resources/css/book_project.css"/>
 <script type="text/javascript" src="./resources/js/book.js"></script>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
     <main>
       <div class="jumbotron">
         <div class="container">
