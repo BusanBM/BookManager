@@ -1,0 +1,11 @@
+<Resource 
+      	name="jdbc/mysql" 
+      	auth="Container" 
+      	type="javax.sql.DataSource"   
+      	driverClassName="com.mysql.jdbc.Driver"
+      	maxActive="100"
+      	maxIdle="100" 
+      	maxWait="5000"
+	username="root"  
+	password="busanit"  
+	url="jdbc:mysql://192.168.0.156:3306/mydb" />
