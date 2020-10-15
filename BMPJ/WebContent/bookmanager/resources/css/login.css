@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+* {
+  margin: 0 100;
+  padding: 0;
+}
+body,
+p {
+  font-size: 13px;
+  margin: 0 auto;
+  width: 50%;
+  line-height: 50px;
+}
+body {
+	background: url("./../images/main_bg.jpg");
+}
+h2 {
+  text-align: center;
+}
+form {
+  padding-top: 25%;
+}
+form fieldset {
+  margin: 10px 0;
+  width: 600px;
+  background-color: rgba(9, 128, 158, 0.322);
+  border-radius: 30px 0 30px 0;
+}
+form legend {
+  font-weight: bold;
+  font-size: large;
+}
+form ul li {
+  list-style: none;
+  margin: 0 auto;
+  width: 35%;
+  padding-top: 5px;
+  text-align: center;
+}
+form label {
+  width: 150px;
+  float: left;
+}
+form input {
+  block-size: auto;
+  font-size: x-large;
+}
+.btn_login {
+  display: block;
+  width: 100%;
+  height: 56px;
+  line-height: 55px;
+  margin: 12px 0 14px;
+  border-radius: 0;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px 0 rgba(61, 80, 81, 0.08);
+  background-color: steelblue;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  border-radius: 10px;
+}
+.btn_login:hover {
+  background-color: #fff;
+  color: steelblue;
+}
+.btn_register {
+  font-size: large;
+  border-radius: 10px;
+}
