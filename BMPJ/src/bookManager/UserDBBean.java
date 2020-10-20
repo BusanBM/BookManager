@@ -24,6 +24,57 @@ public class UserDBBean {
 		}
 		return conn;
 	}
+	
+	public static void close(Connection conn, Statement stmt, PreparedStatement pstmt, ResultSet rs) {
+		try {
+			if(rs !=null) rs.close();
+			if(pstmt !=null) pstmt.close();
+			if(stmt !=null) stmt.close();
+			if(conn !=null) conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public int insertUser(UserBean user) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql="";
+		
+		try {
+			conn = getMySQLConnection();
+			
+			sql = "insert into Customer(cs_id,cs_pwd,cs_name,cs_tel,cs_addres,cs_email) "
+					+ "values(?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, user.getCs_id());
+			pstmt.setString(2, user.getCs_pwd());
+			pstmt.setString(3, user.getCs_name());
+			pstmt.setString(4, user.getCs_tel());
+			pstmt.setString(5, user.getCs_address());
+			pstmt.setString(6, user.getCs_email());
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{
+				close(conn, null, pstmt, rs);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return 1;
+	}
+	
+	
+	
+	
+	
+	
 	public static void close(Connection conn) {
 		try {
 			if(conn !=null) {
