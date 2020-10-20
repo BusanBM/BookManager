@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>책 상세 정보</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-<link rel="stylesheet" href="resources/css/search_result.css" />
+<link rel="stylesheet" href="resources/css/book_project.css" />
 </head>
 <body>
 <main>
