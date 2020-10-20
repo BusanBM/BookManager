@@ -1,11 +1,12 @@
+<%@page import="bookManager.ManagerCheck"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>í™ˆíŽ˜ì´ì§€</title>
+    <title>È¨ÆäÀÌÁö</title>
     <link rel="stylesheet" href="./resources/css/main.css">
     <script type="text/javascript" src="resources/js/book.js"></script>
 </head>
@@ -16,14 +17,26 @@
                 <div class="login">
                     <ul>
                         <li><%
+                       		request.setCharacterEncoding("UTF-8");
 							String id = (String)session.getAttribute("id");
+							ManagerCheck mCk=new ManagerCheck();
+							mCk.setGrade(id);
 							%>
-							<p> ì•ˆë…•í•˜ì„¸ìš”! <%=id %>ë‹˜.</p></li>
+							<p> ¾È³çÇÏ¼¼¿ä! <%=id %>´Ô. <%= mCk.getGrade() %></p></li>
 						<li>
-							<input type="button" value="ë¡œê·¸ì•„ì›ƒ" onclick="location.href='index.jsp?logout=yes'">
+							<input type="button" value="·Î±×¾Æ¿ô" onclick="location.href='index.jsp?logout=yes'">
 						</li>
 						<li>
-							<input type="button" value="íšŒì›ì •ë³´ìˆ˜ì •" onclick="location.href='#'">
+						<% 
+							if("A".equals(mCk.getGrade())){ %>
+								<input type="button" value="°ü¸®ÀÚ ÆäÀÌÁö·Î ÀÌµ¿" onclick="location.href='#'">
+								<input type="button" value="È¸¿øÁ¤º¸¼öÁ¤" onclick="location.href='#'" disabled="disabled" style="display:none;">
+							<%
+							}else{ %>
+								<input type="button" value="°ü¸®ÀÚ ÆäÀÌÁö·Î ÀÌµ¿" onclick="location.href='#'" disabled="disabled" style="display:none;">
+								<input type="button" value="È¸¿øÁ¤º¸¼öÁ¤" onclick="location.href='#'">
+								<%}
+						%>
 						</li>
                         
                     </ul>
@@ -40,38 +53,38 @@
             </div>
             <div class="menu_wrap">
                 <ul class="menu" id="menu">
-                    <li><a href="#">êµ­ë‚´ë„ì„œ</a>
+                    <li><a href="#">±¹³»µµ¼­</a>
                         <ul class="sub">
-                            <li><a href="#">ì†Œì„¤</a></li>
-                            <li><a href="#">ì—­ì‚¬</a></li>
-                            <li><a href="#">ì •ì¹˜</a></li>
-                            <li><a href="#">ì˜ˆìˆ </a></li>
-                            <li><a href="#">ê³¼í•™</a></li>
+                            <li><a href="#">¼Ò¼³</a></li>
+                            <li><a href="#">¿ª»ç</a></li>
+                            <li><a href="#">Á¤Ä¡</a></li>
+                            <li><a href="#">¿¹¼ú</a></li>
+                            <li><a href="#">°úÇÐ</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">í•´ì™¸ë„ì„œ</a></li>
+                    <li><a href="#">ÇØ¿Üµµ¼­</a></li>
                     <li><a href="#">E-Book</a></li>
-                    <li><a href="#">ì›¹ì†Œì„¤</a></li>
+                    <li><a href="#">À¥¼Ò¼³</a></li>
                 </ul>
             </div>
         </div>
         <!-- header End -->
         <div class="content_wrap">
             <div class="content_name">
-                <h2 class="todays_book_text">ì˜¤ëŠ˜ì˜ ì±…</h2>
-                <h2 class="bestseller_text">ë² ìŠ¤íŠ¸ ì…€ëŸ¬</h2>
+                <h2 class="todays_book_text">¿À´ÃÀÇ Ã¥</h2>
+                <h2 class="bestseller_text">º£½ºÆ® ¼¿·¯</h2>
             </div>
             <div class="todays_book_wrap">
                 <div class="todays_book">
-                    <p><img src="img/ì–´ë¦°ì™•ìž.PNG" alt="ì–´ë¦°ì™•ìž"></p>
+                    <p><img src="img/¾î¸°¿ÕÀÚ.PNG" alt="¾î¸°¿ÕÀÚ"></p>
                     <dl>
                         <dt>TITLE</dt>
                         <dd>
-                            ì–´ë¦°ì™•ìž
+                            ¾î¸°¿ÕÀÚ
                         </dd>
                         <dt>AUTHOR</dt>
                         <dd>
-                            ìƒí…ì¥íŽ˜ë¦¬
+                            »ýÅØÁãÆä¸®
                         </dd>
                     </dl>
                 </div>
@@ -79,15 +92,15 @@
             </div>
             <div class="bestseller_wrap">
                 <div class="bestseller">
-                    <p><img src="img/ì–´ë¦°ì™•ìž.PNG" alt="ì–´ë¦°ì™•ìž"></p>
+                    <p><img src="img/¾î¸°¿ÕÀÚ.PNG" alt="¾î¸°¿ÕÀÚ"></p>
                     <dl>
                         <dt>TITLE</dt>
                         <dd>
-                            ì–´ë¦°ì™•ìž
+                            ¾î¸°¿ÕÀÚ
                         </dd>
                         <dt>AUTHOR</dt>
                         <dd>
-                            ìƒí…ì¥íŽ˜ë¦¬
+                            »ýÅØÁãÆä¸®
                         </dd>
                     </dl>
                 </div>
@@ -96,57 +109,57 @@
             <!-- bestseller_wrap End -->
             <div class="bookList_wrap">
                 <div class="book1" id="booklis">
-                    <p><img src="img/ì–´ë¦°ì™•ìž.PNG" alt="ì–´ë¦°ì™•ìž"></p>
+                    <p><img src="img/¾î¸°¿ÕÀÚ.PNG" alt="¾î¸°¿ÕÀÚ"></p>
                     <dl>
                         <dt>TITLE</dt>
                         <dd>
-                            ì–´ë¦°ì™•ìž
+                            ¾î¸°¿ÕÀÚ
                         </dd>
                         <dt>AUTHOR</dt>
                         <dd>
-                            ìƒí…ì¥íŽ˜ë¦¬
+                            »ýÅØÁãÆä¸®
                         </dd>
                     </dl>
                 </div>
                 <!-- book1 End -->
                 <div class="book2" id="booklis">
-                    <p><img src="img/ì–´ë¦°ì™•ìž.PNG" alt="ì–´ë¦°ì™•ìž"></p>
+                    <p><img src="img/¾î¸°¿ÕÀÚ.PNG" alt="¾î¸°¿ÕÀÚ"></p>
                     <dl>
                         <dt>TITLE</dt>
                         <dd>
-                            ì–´ë¦°ì™•ìž
+                            ¾î¸°¿ÕÀÚ
                         </dd>
                         <dt>AUTHOR</dt>
                         <dd>
-                            ìƒí…ì¥íŽ˜ë¦¬
+                            »ýÅØÁãÆä¸®
                         </dd>
                     </dl>
                 </div>
                 <!-- book2 End -->
                 <div class="book3" id="booklis">
-                    <p><img src="img/ì–´ë¦°ì™•ìž.PNG" alt="ì–´ë¦°ì™•ìž"></p>
+                    <p><img src="img/¾î¸°¿ÕÀÚ.PNG" alt="¾î¸°¿ÕÀÚ"></p>
                     <dl>
                         <dt>TITLE</dt>
                         <dd>
-                            ì–´ë¦°ì™•ìž
+                            ¾î¸°¿ÕÀÚ
                         </dd>
                         <dt>AUTHOR</dt>
                         <dd>
-                            ìƒí…ì¥íŽ˜ë¦¬
+                            »ýÅØÁãÆä¸®
                         </dd>
                     </dl>
                 </div>
                 <!-- book3 End -->
                 <div class="book4" id="booklis">
-                    <p><img src="img/ì–´ë¦°ì™•ìž.PNG" alt="ì–´ë¦°ì™•ìž"></p>
+                    <p><img src="img/¾î¸°¿ÕÀÚ.PNG" alt="¾î¸°¿ÕÀÚ"></p>
                     <dl>
                         <dt>TITLE</dt>
                         <dd>
-                            ì–´ë¦°ì™•ìž
+                            ¾î¸°¿ÕÀÚ
                         </dd>
                         <dt>AUTHOR</dt>
                         <dd>
-                            ìƒí…ì¥íŽ˜ë¦¬
+                            »ýÅØÁãÆä¸®
                         </dd>
                     </dl>
                 </div>
@@ -158,11 +171,11 @@
         <div class="footer">
             <div class="footer_text">
                 <p>
-                    ë¶€ì‚°ê´‘ì—­ì‹œ ìˆ˜ì˜êµ¬ ìˆ˜ì˜ë¡œ 223ê¸¸ 23<span>ëŒ€í‘œ ê¹€ë¯¼ê·œ</span>
+                    ºÎ»ê±¤¿ª½Ã ¼ö¿µ±¸ ¼ö¿µ·Î 223±æ 23<span>´ëÇ¥ ±è¹Î±Ô</span>
                     <span><a href="tel:010-9996-1822">TEL.010-9996-1822</a></span>
                 </p>
                 <p>
-                    BooksCode. All Right Reserved. Design by ë¶ìŠ¤ì½”ë“œ
+                    BooksCode. All Right Reserved. Design by ºÏ½ºÄÚµå
                 </p>
             </div>
         </div>

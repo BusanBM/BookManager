@@ -7,8 +7,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인/회원가입</title>
-    <script type="text/javascript" src="resources/js/script.js"></script>
-    <link rel="stylesheet" href="resources/css/login.css" />
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="css/login.css" />
   </head>
   <body>
   <%
@@ -26,17 +26,30 @@
 		session.removeAttribute("login");
 	}
 	String login = (String)session.getAttribute("login");
+	ManagerCheck mCk = new ManagerCheck();
+	mCk.setGrade(id);
 	if(login != null&& login.equals("yes")){
-		%>
-		<script>
-		alert("로그인 되었습니다.환영합니다^^.");
-		location.href="main.jsp";
-		</script>
-		<%
+		if("A".equals(mCk.getGrade())){
+			/* response.sendRedirect("../main.jsp"); */
+			%>
+			<script>
+			alert("관리자님 환영합니다^^.");
+			location.href="main.jsp";
+			</script>
+			<%
+		}else{
+			%>
+			<script>
+			alert("로그인 되었습니다.환영합니다^^.");
+			location.href="main.jsp";
+			</script>
+			<%
+		}
 	}else{
 		%>
-    <h2><a href="main.jsp">BooksCode</a></h2>
-    <form action="loginOK.jsp" method="post" onsubmit="return loginCk(this)" name=login>
+
+    <h2><a href="index.jsp">BooksCode</a></h2>
+    <form action="?" method="post" onsubmit="return loginCk(this)" name=login>
       <fieldset>
         <legend>로그인</legend>
         <ul>
@@ -66,7 +79,7 @@
               class="btn_register"
               type="button"
               value="회원가입"
-              onclick="javascript:window.location='register.jsp'"
+              onclick="javascript:window.location='register.html'"
             />
           </li>
         </ul>
