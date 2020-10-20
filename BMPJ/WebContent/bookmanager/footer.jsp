@@ -3,7 +3,7 @@
     <footer>
       <div class="container">
         <div class="col-sm-2">
-          <h3><a href="#">LOGO</a></h3>
+          <h3><a href="index.jsp">LOGO</a></h3>
         </div>
         <div class="footer_text col-sm-4">
           주소 : 부산광역시 해운대구 해운대로 81번가길 63<br>
