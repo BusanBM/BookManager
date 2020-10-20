@@ -6,8 +6,13 @@
 	request.setCharacterEncoding("utf-8");
 	String search_word = request.getParameter("search_word");
 	
+	String currentPage = request.getParameter("currentPage");
+	if(currentPage == null){
+		currentPage = "1";
+	}
+	
 	BookDBBean db = BookDBBean.getinstance();
-	ArrayList<BookBean> listBook =  db.listBoard(search_word);
+	ArrayList<BookBean> listBook =  db.listBoard(search_word,currentPage);
 	String b_author, b_genre, b_title, b_list, b_story;
 	int b_price=0 , b_year=0, b_no=0;
 %>
@@ -81,6 +86,9 @@
 %>
           </tbody>
         </table>
+        <div class="paging_list" align="center">		
+			<%= BookBean.pageNumber(5, search_word) %>
+		</div>
       </div>
     </section>
   <jsp:include page="footer.jsp"></jsp:include>
