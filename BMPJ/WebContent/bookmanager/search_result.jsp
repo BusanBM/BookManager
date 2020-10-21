@@ -4,15 +4,25 @@
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");
+
 	String search_word = request.getParameter("search_word");
-	
+	String search_genre = request.getParameter("search_genre");
+	int genre = 0;
+			
 	String currentPage = request.getParameter("currentPage");
 	if(currentPage == null){
 		currentPage = "1";
 	}
 	
 	BookDBBean db = BookDBBean.getinstance();
-	ArrayList<BookBean> listBook =  db.listBoard(search_word,currentPage);
+	ArrayList<BookBean> listBook = null;
+	if(search_word != null){
+		listBook  = db.listBoard(search_word,currentPage);
+	}else if(search_genre != null){
+		genre = Integer.parseInt(search_genre); 
+		listBook =  db.genreBoard(genre,currentPage);
+	}
+	
 	String b_author, b_genre, b_title, b_list, b_story;
 	int b_price=0 , b_year=0, b_no=0;
 %>
@@ -32,7 +42,27 @@
     <main>
       <div class="jumbotron">
         <div class="container">
-          <div class="jumbo_text"><%=search_word%>에 대한 검색결과 입니다.</div>
+          <div class="jumbo_text">
+          	<% 
+          		if(search_word != null){
+        	%>
+        	  	<%=search_word%>에 대한 검색결과 입니다.
+        	<%
+          		}else if(search_genre != null){
+          			String strGenre="";
+          			switch(genre){
+          			case 01: strGenre="소설"; break;
+          			case 02: strGenre="역사"; break;
+          			case 03: strGenre="정치"; break;
+          			case 04: strGenre="예술"; break;
+          			case 05: strGenre="과학"; break;
+          			}
+        	%>
+        	  	<%=strGenre%>카테고리 검색결과 입니다.
+        	<%
+          		}
+        	%>
+          </div>
         </div>
       </div>
     </main>
@@ -78,7 +108,7 @@
               </td>
               <td><%=b_price%>원</td>
               <td>
-                <a href="detail_book.jsp?b_no=<%=b_no%>" class="btn btn-primary" role="button">상세보기</a>
+                <a href="detail_book.jsp?book_no=<%=b_no%>" class="btn btn-primary" role="button">상세보기</a>
               </td>
             </tr>
 <%
