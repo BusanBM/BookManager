@@ -76,6 +76,12 @@ A:hover {
 	font-weight :bolder;
 	text-decoration: underline;
 }
+.bumle {
+	margin-left: 735px;
+	margin-bottom: 5px;
+	padding: 0;
+}
+
 </style>
 <!-- <script src="./js/form.js"></script> -->
 </head>
@@ -84,7 +90,10 @@ A:hover {
 		<h2>서점 정보 관리</h2>
 	</header>
 	<nav>
-		<span id="span1"> &emsp;&emsp;<a href=c_list.jsp>고객 정보 관리</a> &emsp;
-		<a href=b_list.jsp>도서 정보 관리</a> &emsp;<a href=index.jsp>홈으로</a>
+		<span id="span1"> 
+			&emsp;&emsp;<a href=c_list.jsp>고객 정보 관리</a> &emsp;
+			<a href=b_list.jsp>도서 정보 관리</a> &emsp;
+			<a href=b_form.jsp>신규 도서 등록</a> &emsp;	
+			<a href=admin_index.jsp>메인화면</a>
 		</span>
 	</nav>

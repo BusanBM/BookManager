@@ -45,12 +45,33 @@
 	<br>
 	<div align="center">
 		<h2>도서 정보 관리</h2>
+	<div class="bumle">	
+		<table border="1" title="장르 범례">
+			<tr>
+				<th>소설</th>
+				<th>역사</th>
+				<th>정치</th>
+				<th>예술</th>
+				<th>과학</th>
+				<th>경제</th>
+			</tr>
+			<tr>
+				<th>01</th>
+				<th>02</th>
+				<th>03</th>
+				<th>04</th>
+				<th>05</th>
+				<th>06</th>
+			</tr>
+		</table>
 	</div>
+	</div>
+	
 	<table align=center width=900 border=1>
 		<tr align=center>
 	        <th>도서번호</th>
             <th>제목</th>
-            <th>작가번호</th>
+            <th>작가</th>
             <th>가격</th>
             <th>장르</th>
             <th>출판년도</th>
@@ -66,13 +87,15 @@
 				}
 		%>
 		<tr align=center bgcolor=<%=bg%>>
-			<td><%=rs.getString("book_no")%></td>
+			<td>
+				<a href='b_content.jsp?book_no=<%=rs.getString("book_no")%>'> <%=rs.getString("book_no")%> </a>
+				</td>
 			<td><%=rs.getString("b_title")%></td>
 			<td><%=rs.getString("b_author")%></td>
 			<td><%=rs.getString("b_price")%></td>
 			<td><%=rs.getString("b_genre")%></td>
 			<td><%=rs.getString("b_year")%></td>
-			<td><%=rs.getString("b_amount")%></td>
+			<td><%=rs.getInt("b_amount")%></td>
 		</tr>
 		<%
 			}

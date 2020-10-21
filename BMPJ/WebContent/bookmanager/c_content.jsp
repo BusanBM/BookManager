@@ -15,10 +15,9 @@
 %>
 <section>
 	<br>	
-	<form name="f1" action="c_contentOk.jsp"
-		method="GET">
+	<form name="f1" action="c_contentOk.jsp">
 		<div align="center">
-			<h2>고객 정보 조회</h2>
+			<h2>고객 정보 수정</h2>
 		</div>
 		
 		
@@ -35,8 +34,8 @@
 		    </tr>	            
 	            
 			<tr>	            
-	            <td align="center">이름</td>
-	            <td><input type=text name=cs_name value=<%=rs.getString("cs_name")%>></td>
+	            <td align="center">이&emsp;름</td>
+	            <td><input type=text name="cs_name" value=<%=rs.getString("cs_name")%>></td>
 		    </tr>
 
 			<tr>
@@ -45,7 +44,7 @@
 		    </tr>	            
 	            
 			<tr>	            
-	            <td align="center">주소</td>
+	            <td align="center">주&emsp;소</td>
 	            <td><input type=text name=cs_address value=<%=rs.getString("cs_address")%>></td>
 		    </tr>	            
 	            
@@ -76,7 +75,8 @@
 	<div align=center>
  
 		[<a href='c_list.jsp'>목록보기</a>] 
-		[<a	href=#>'>삭제하기</a>]
+		[<a	href='c_delete.jsp?cs_no=<%=rs.getString("cs_no")%>'>삭제하기</a>]
+
 	</div>
 </section>
 <%

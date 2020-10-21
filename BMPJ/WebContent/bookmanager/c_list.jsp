@@ -51,7 +51,7 @@
 	<div align="center">
 		<h2>고객 정보 관리</h2>
 	</div>
-	<table align=center width=900 border=1>
+	<table align=center width=1000 border=1>
 		<tr align=center>
 	        <th>고객번호</th>
             <th>고객ID</th>
@@ -61,7 +61,6 @@
             <th>이메일</th>
             <th>고객등급</th>
             <th>포인트</th>
-            <th>상세정보</th>
 		</tr>
 		<%
 			while (rs.next()) {
@@ -74,15 +73,16 @@
 		%>
 		
 		<tr align=center bgcolor=<%=bg%>>
-			<td><%=rs.getString("cs_no")%></td>
+			<td>
+				<a href='c_content.jsp?cs_no=<%=rs.getString("cs_no")%>'> <%=rs.getString("cs_no")%> </a>
+			</td>
 			<td><%=rs.getString("cs_id")%></td>
 			<td><%=rs.getString("cs_name")%></td>
 			<td><%=rs.getString("cs_tel")%></td>
 			<td><%=rs.getString("cs_address")%></td>
 			<td><%=rs.getString("cs_email")%></td>
 			<td><%=rs.getString("cs_grade")%></td>
-			<td><%=rs.getString("cs_point")%></td>
-			<td><input type="button" value="상세정보" onclick=""></td>
+			<td><%=rs.getInt("cs_point")%></td>
 		</tr>
 		<%
 			}
