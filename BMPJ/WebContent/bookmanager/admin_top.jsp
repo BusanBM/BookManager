@@ -93,7 +93,8 @@ A:hover {
 		<span id="span1"> 
 			&emsp;&emsp;<a href=c_list.jsp>고객 정보 관리</a> &emsp;
 			<a href=b_list.jsp>도서 정보 관리</a> &emsp;
+			<a href=comp_list.jsp>출판사 정보 관리</a> &emsp;			
 			<a href=b_form.jsp>신규 도서 등록</a> &emsp;	
-			<a href=admin_index.jsp>메인화면</a>
+			<a href=index.jsp>메인화면</a>
 		</span>
 	</nav>
