@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>í™ˆíŽ˜ì´ì§€</title>
+    <title>È¨ÆäÀÌÁö</title>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
     <link rel="stylesheet" href="resources/css/book_project.css"/>
     <script type="text/javascript" src="resources/js/book.js"></script>
@@ -16,9 +16,16 @@
 	if(logout != null && logout.equals("yes")){
 		session.removeAttribute("id");
 		session.removeAttribute("login");
-}
+		%>
+		<jsp:include page="header.jsp"></jsp:include>
+		<%
+	}else{
+		%>
+		<jsp:include page="header_login.jsp"></jsp:include>
+		<%
+	}
 %>
-    <jsp:include page="header.jsp"></jsp:include>
+    
     <main>
       <div class="jumbotron main_visual">
         <div class="container">
@@ -29,14 +36,14 @@
 
     <section>
       <div class="container">
-        <h3>ì˜¤ëŠ˜ì˜ ì±…</h3>
+        <h3>¿À´ÃÀÇ Ã¥</h3>
         <div class="book_display_1">
           <p><img src="resources/images/2103010101.jpg" /></p>
           <dl>
-            <dt>ì–´ë¦°ì™•ìž</dt>
+            <dt>¾î¸°¿ÕÀÚ</dt>
           </dl>
           <dl>
-            <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+            <dd>»ýÅØÁãÆä¸®</dd>
           </dl>
         </div>
       </div>
@@ -44,42 +51,42 @@
 
     <section class="best_seller">
       <div class="container">
-        <h3>ë² ìŠ¤íŠ¸ì…€ëŸ¬</h3>
+        <h3>º£½ºÆ®¼¿·¯</h3>
         <div class="book_display_2">
           <div class="book_display_2_1">
             <p><img src="resources/images/2103010101.jpg" /></p>
             <dl>
-              <dt>ì–´ë¦°ì™•ìž</dt>
+              <dt>¾î¸°¿ÕÀÚ</dt>
             </dl>
             <dl>
-              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
-            </dl>
-          </div>
-          <div class="book_display_2_1">
-            <p><img src="resources/images/2103010101.jpg" /></p>
-            <dl>
-              <dt>ì–´ë¦°ì™•ìž</dt>
-            </dl>
-            <dl>
-              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+              <dd>»ýÅØÁãÆä¸®</dd>
             </dl>
           </div>
           <div class="book_display_2_1">
             <p><img src="resources/images/2103010101.jpg" /></p>
             <dl>
-              <dt>ì–´ë¦°ì™•ìž</dt>
+              <dt>¾î¸°¿ÕÀÚ</dt>
             </dl>
             <dl>
-              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+              <dd>»ýÅØÁãÆä¸®</dd>
             </dl>
           </div>
           <div class="book_display_2_1">
             <p><img src="resources/images/2103010101.jpg" /></p>
             <dl>
-              <dt>ì–´ë¦°ì™•ìž</dt>
+              <dt>¾î¸°¿ÕÀÚ</dt>
             </dl>
             <dl>
-              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+              <dd>»ýÅØÁãÆä¸®</dd>
+            </dl>
+          </div>
+          <div class="book_display_2_1">
+            <p><img src="resources/images/2103010101.jpg" /></p>
+            <dl>
+              <dt>¾î¸°¿ÕÀÚ</dt>
+            </dl>
+            <dl>
+              <dd>»ýÅØÁãÆä¸®</dd>
             </dl>
           </div>
         </div>
