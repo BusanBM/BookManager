@@ -38,6 +38,10 @@
 				<td><input type=text name=b_amount></td>
 			</tr>			
 			<tr>
+				<td align=center>출판사</td>
+				<td><input type=text name=b_company></td>
+			</tr>			
+			<tr>
 				<td align=center colspan=2><input type=submit value="도서등록">
 				</td>
 			</tr>

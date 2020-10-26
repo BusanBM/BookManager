@@ -18,8 +18,8 @@
 	
 	
 	try {
-		sql = "select book_no, b_title, b_author, b_price, b_genre, b_img, b_year, b_amount from BookList";
-
+		sql = "select B.book_no, B.b_title, B.b_author, B.b_price, B.b_genre, B.b_year,C.comp_name, B.b_amount "
+				+"from BookList B join Company C on B.b_company =C.comp_no";
 		if(ch2 != null && !ch2.equals("")){		
         
 			ch2 = "%" + ch2 + "%";  
@@ -31,15 +31,18 @@
 				sql = sql + " where b_author like ?";
 			}else if(ch1.equals("b_year")){
 				sql = sql + " where b_year like ?";
-			}		
+			}else if(ch1.equals("comp_name")){
+				sql = sql + " where C.comp_name like ?";
+			}
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ch2);
 		}		
 		else{
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);	
 		}
+		
 		rs = pstmt.executeQuery();
-%>
+		%>
 
 <section>
 	<br>
@@ -74,8 +77,9 @@
             <th>작가</th>
             <th>가격</th>
             <th>장르</th>
-            <th>출판년도</th>
+            <th>출판년도</th>         
             <th>수량</th>
+            <th>출판사</th>
 		</tr>
 		<%
 			while (rs.next()) {
@@ -94,8 +98,9 @@
 			<td><%=rs.getString("b_author")%></td>
 			<td><%=rs.getString("b_price")%></td>
 			<td><%=rs.getString("b_genre")%></td>
-			<td><%=rs.getString("b_year")%></td>
-			<td><%=rs.getInt("b_amount")%></td>
+			<td><%=rs.getString("b_year")%></td>	
+			<td><%=rs.getInt("b_amount")%></td>	
+			<td><%=rs.getString("C.comp_name")%></td>	
 		</tr>
 		<%
 			}
@@ -118,6 +123,7 @@
 			<option value="b_title">제목</option>
 			<option value="b_author">작가번호</option>
 			<option value="b_year">출판년도</option>
+			<option value="comp_name">출판사</option>
 		</select> 
 		<input type="text" name="ch2"> 
 		<input type="submit" value="검색">

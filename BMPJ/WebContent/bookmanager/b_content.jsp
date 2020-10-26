@@ -6,7 +6,7 @@
 <%
 	String book_no = request.getParameter("book_no");
 
-	String sql = "select book_no, b_title, b_author, b_price, b_genre, b_year, b_amount from BookList where book_no=?";
+	String sql = "select book_no, b_title, b_author, b_price, b_genre, b_year, b_amount, b_company from BookList where book_no=?";
 	pstmt = con.prepareStatement(sql);
 	
 	pstmt.setString(1, book_no);
@@ -57,7 +57,10 @@
 	            <td align="center">수&emsp;량</td>
 	            <td><input type=text name=b_amount value=<%=rs.getString("b_amount")%>></td>
 		    </tr>	            
-	            
+			<tr>	            
+	            <td align="center">출판사</td>
+	            <td><input type=text name=b_company value=<%=rs.getString("b_company")%>></td>
+		    </tr>	            
 			<tr>
 				<td align=center colspan=2><input type=submit value="정보저장">
 				</td>
