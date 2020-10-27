@@ -51,7 +51,16 @@ pageEncoding="UTF-8"%>
           <li><a href="search_result.jsp?search_genre=05">과학</a></li>
         </ul>
       </li>
-      <li><a href="#">해외도서</a></li>
+      <li>
+      	<a href="#">해외도서</a>
+        <ul class="sub">
+          <li><a href="search_result.jsp?search_genre=01">소설</a></li>
+          <li><a href="search_result.jsp?search_genre=02">역사</a></li>
+          <li><a href="search_result.jsp?search_genre=03">정치</a></li>
+          <li><a href="search_result.jsp?search_genre=04">예술</a></li>
+          <li><a href="search_result.jsp?search_genre=05">과학</a></li>
+        </ul>
+      </li>
       <li><a href="#">E-Book</a></li>
       <li><a href="#">웹소설</a></li>
     </ul>

@@ -38,7 +38,20 @@
   </head>
   
   <body>
-  <jsp:include page="header.jsp"></jsp:include>
+<%
+	String logout = request.getParameter("logout");
+	if(logout != null && logout.equals("yes")){
+		session.removeAttribute("id");
+		session.removeAttribute("login");
+		%>
+		<jsp:include page="header.jsp"></jsp:include>
+		<%
+	}else{
+		%>
+		<jsp:include page="header_login.jsp"></jsp:include>
+		<%
+	}
+%>
     <main>
       <div class="jumbotron">
         <div class="container">
@@ -96,7 +109,7 @@
                   <img src="..." class="img-thumbnail" />
                 </div>
                 <div class="col-sm-7">
-                  <div class="title"><a href="#"><%=b_title %></a></div>
+                  <div class="title"><%=b_title %></div>
                   <div class="detail_desc">
                     <div><%=b_author %></div>
                     &nbsp;

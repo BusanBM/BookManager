@@ -9,6 +9,7 @@
 	BookDBBean db = BookDBBean.getinstance();
 	BookBean book = db.getBook(book_no);
 	int b_price = book.getB_price();
+	String img = book.getB_no()+".jpg";
 %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,7 @@
     <section>
       <div class="container">
         <div class="main_cont">
-          <div class="book_image"><img src="#" /></div>
+          <div class="book_image"><img src="img" /></div>
           <div class="detail_cont">
             <div class="detail_header">
               <h1><%=book.getB_title()%></h1>
