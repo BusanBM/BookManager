@@ -34,14 +34,14 @@
 			%>
 			<script>
 			alert("관리자님 환영합니다^^.");
-			location.href="main.jsp";
+			location.href="admin_index.jsp";
 			</script>
 			<%
 		}else{
 			%>
 			<script>
 			alert("로그인 되었습니다.환영합니다^^.");
-			location.href="main.jsp";
+			location.href="index.jsp";
 			</script>
 			<%
 		}
