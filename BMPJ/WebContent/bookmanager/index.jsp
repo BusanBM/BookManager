@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>È¨ÆäÀÌÁö</title>
+    <title>í™ˆíŽ˜ì´ì§€</title>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
     <link rel="stylesheet" href="resources/css/book_project.css"/>
     <script type="text/javascript" src="resources/js/book.js"></script>
@@ -13,15 +13,15 @@
   <body>
 <%
 	String logout = request.getParameter("logout");
-	if(logout != null && logout.equals("yes")){
+	if(logout == null && !"yes".equals(logout)){
+		%>
+		<jsp:include page="header_login.jsp"></jsp:include>
+		<%
+	}else{
 		session.removeAttribute("id");
 		session.removeAttribute("login");
 		%>
 		<jsp:include page="header.jsp"></jsp:include>
-		<%
-	}else{
-		%>
-		<jsp:include page="header_login.jsp"></jsp:include>
 		<%
 	}
 %>
@@ -49,68 +49,58 @@
 
     <section>
       <div class="container">
-        <h3>¿À´ÃÀÇ Ã¥</h3>
-	      <div class="book_display_1">
-          	<a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=2117070401">
-	          <p><img src="resources/images/2117070401.jpg" /></p>
-	          <dl>
-	            <dt>ÇØ¸®Æ÷ÅÍ1</dt>
-	          </dl>
-	          <dl>
-	            <dd>J.K.·Ñ¸µ</dd>
-	          </dl>
-	      	</a>
-	      </div>
+        <h3>ì˜¤ëŠ˜ì˜ ì±…</h3>
+        <div class="book_display_1">
+          <p><img src="resources/images/2103010101.jpg" /></p>
+          <dl>
+            <dt>ì–´ë¦°ì™•ìž</dt>
+          </dl>
+          <dl>
+            <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+          </dl>
+        </div>
       </div>
     </section>
 
     <section class="best_seller">
       <div class="container">
-        <h3>º£½ºÆ®¼¿·¯</h3>
+        <h3>ë² ìŠ¤íŠ¸ì…€ëŸ¬</h3>
         <div class="book_display_2">
           <div class="book_display_2_1">
-          	<a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=1201080101">
-	          <p><img src="resources/images/1201080101.jpg" /></p>
-	          <dl>
-	            <dt>³­ÁßÀÏ±â</dt>
-	          </dl>
-	          <dl>
-	            <dd>ÀÌ¼ø½Å</dd>
-	          </dl>
-            </a>
+            <p><img src="resources/images/2103010101.jpg" /></p>
+            <dl>
+              <dt>ì–´ë¦°ì™•ìž</dt>
+            </dl>
+            <dl>
+              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+            </dl>
           </div>
           <div class="book_display_2_1">
-	       <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=1208050501">
-	        <p><img src="resources/images/1208050501.jpg" /></p>
-	          <dl>
-	            <dt>³ªÀÇ¹®È­À¯»ê´ä»ç±â</dt>
-	          </dl>
-	          <dl>
-	            <dd>À¯È«ÁØ</dd>
-	          </dl>
-            </a>
+            <p><img src="resources/images/2103010101.jpg" /></p>
+            <dl>
+              <dt>ì–´ë¦°ì™•ìž</dt>
+            </dl>
+            <dl>
+              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+            </dl>
           </div>
           <div class="book_display_2_1">
-          	<a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=1208050501">
-              <p><img src="resources/images/1415040201.jpg" /></p>
-              <dl>
-                <dt>¿¹¼úÇÏ´Â½À°ü</dt>
-              </dl>
-              <dl>
-                <dd>¸ÞÀÌ½¼</dd>
-              </dl>
-            </a>
+            <p><img src="resources/images/2103010101.jpg" /></p>
+            <dl>
+              <dt>ì–´ë¦°ì™•ìž</dt>
+            </dl>
+            <dl>
+              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+            </dl>
           </div>
           <div class="book_display_2_1">
-            <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=2103010101">
-              <p><img src="resources/images/2103010101.jpg" /></p>
-              <dl>
-                <dt>¾î¸°¿ÕÀÚ</dt>
-              </dl>
-              <dl>
-                <dd>»ýÅØÁãÆä¸®</dd>
-              </dl>
-            </a>
+            <p><img src="resources/images/2103010101.jpg" /></p>
+            <dl>
+              <dt>ì–´ë¦°ì™•ìž</dt>
+            </dl>
+            <dl>
+              <dd>ìƒí…ì¥íŽ˜ë¦¬</dd>
+            </dl>
           </div>
         </div>
       </div>
