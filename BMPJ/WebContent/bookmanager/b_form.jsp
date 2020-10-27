@@ -40,6 +40,11 @@
 			<tr>
 				<td align=center>출판사</td>
 				<td><input type=text name=b_company></td>
+			</tr>
+			<tr>
+				<td align="center">파   일</td>
+				<td>
+					<input type="file" name="b_img"></td>
 			</tr>			
 			<tr>
 				<td align=center colspan=2><input type=submit value="도서등록">
