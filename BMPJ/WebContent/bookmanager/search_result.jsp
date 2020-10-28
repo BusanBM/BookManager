@@ -39,18 +39,19 @@
   
   <body>
 <%
-	String logout = request.getParameter("logout");
-	if(logout != null && logout.equals("yes")){
-		session.removeAttribute("id");
-		session.removeAttribute("login");
-		%>
-		<jsp:include page="header.jsp"></jsp:include>
-		<%
-	}else{
-		%>
-		<jsp:include page="header_login.jsp"></jsp:include>
-		<%
-	}
+   String logout = request.getParameter("logout");
+   String id = (String)session.getAttribute("id");
+   if((logout == null && !"yes".equals(logout))&&id != null){
+      %>
+      <jsp:include page="header_login.jsp"></jsp:include>
+      <%
+   }else{
+	      session.removeAttribute("id");
+	      session.removeAttribute("login");
+      %>
+      <jsp:include page="header.jsp"></jsp:include>
+      <%
+   }
 %>
     <main>
       <div class="jumbotron">
@@ -69,6 +70,7 @@
           			case 03: strGenre="정치"; break;
           			case 04: strGenre="예술"; break;
           			case 05: strGenre="과학"; break;
+          			case 06: strGenre="경제"; break;
           			}
         	%>
         	  	<%=strGenre%>카테고리 검색결과 입니다.

@@ -49,6 +49,7 @@ pageEncoding="UTF-8"%>
           <li><a href="search_result.jsp?search_genre=03">정치</a></li>
           <li><a href="search_result.jsp?search_genre=04">예술</a></li>
           <li><a href="search_result.jsp?search_genre=05">과학</a></li>
+          <li><a href="search_result.jsp?search_genre=05">경제</a></li>
         </ul>
       </li>
       <li>
@@ -59,6 +60,7 @@ pageEncoding="UTF-8"%>
           <li><a href="search_result.jsp?search_genre=03">정치</a></li>
           <li><a href="search_result.jsp?search_genre=04">예술</a></li>
           <li><a href="search_result.jsp?search_genre=05">과학</a></li>
+          <li><a href="search_result.jsp?search_genre=05">경제</a></li>
         </ul>
       </li>
       <li><a href="#">E-Book</a></li>

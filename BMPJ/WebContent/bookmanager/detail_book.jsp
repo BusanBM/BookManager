@@ -20,7 +20,21 @@
 <link rel="stylesheet" href="resources/css/book_project.css"/>
 <script type="text/javascript" src="resources/js/book.js"></script>
 </head>
-<jsp:include page="header.jsp"></jsp:include>
+<%
+   String logout = request.getParameter("logout");
+   String id = (String)session.getAttribute("id");
+   if((logout == null && !"yes".equals(logout))&&id != null){
+      %>
+      <jsp:include page="header_login.jsp"></jsp:include>
+      <%
+   }else{
+	      session.removeAttribute("id");
+	      session.removeAttribute("login");
+      %>
+      <jsp:include page="header.jsp"></jsp:include>
+      <%
+   }
+%>
   <body>
     <main>
       <div class="jumbotron">
@@ -33,7 +47,7 @@
     <section>
       <div class="container">
         <div class="main_cont">
-          <div class="book_image"><img src="img" /></div>
+          <div class="book_image"><img src="img"/></div>
           <div class="detail_cont">
             <div class="detail_header">
               <h1><%=book.getB_title()%></h1>
