@@ -88,7 +88,7 @@ public class BookDBBean {
 		return 1; //완료시에 1을 반환한다.	
 	}
 	
-	public ArrayList<BookBean> genreBoard(int search_genre, String currentPage) {
+	public ArrayList<BookBean> genreBoard(String search_genre, String currentPage) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -108,7 +108,7 @@ public class BookDBBean {
 			//CONCUR_UPDATABLE : 커서의 위치에서 정보 업데이트 가능. 
 			//ResultSet이 저장하고 있는 레코드들을 직접 수정해야 할 경우.(Resultset Object의 변경이 가능)
 			pstmt = con.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			pstmt.setInt(1, search_genre);
+			pstmt.setString(1, search_genre);
 			pageset = pstmt.executeQuery();
 			//검색 결과 수를 search_count에 담음
 			if(pageset.next()) {
@@ -132,7 +132,7 @@ public class BookDBBean {
 			
 			sql ="SELECT * FROM BookList WHERE b_genre = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1,search_genre);
+			pstmt.setString(1,search_genre);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
