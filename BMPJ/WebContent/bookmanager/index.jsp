@@ -11,22 +11,7 @@
     <script type="text/javascript" src="resources/js/book.js"></script>
   </head>
   <body>
-<%
-   String logout = request.getParameter("logout");
-   String id = (String)session.getAttribute("id");
-   if((logout == null && !"yes".equals(logout))&&id != null){
-      %>
-      <jsp:include page="header_login.jsp"></jsp:include>
-      <%
-   }else{
-	      session.removeAttribute("id");
-	      session.removeAttribute("login");
-      %>
-      <jsp:include page="header.jsp"></jsp:include>
-      <%
-   }
-%>
-    
+    <jsp:include page="header.jsp"></jsp:include>
     <main>
         <div id="slide">
            <input type="radio" name="pos" id="pos1" checked>

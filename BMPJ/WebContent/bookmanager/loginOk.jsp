@@ -1,42 +1,57 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="bookManager.*" %>
 
-<% request.setCharacterEncoding("UTF-8");
+<% 
+	request.setCharacterEncoding("UTF-8");
 
 	String id = request.getParameter("id");
 	String pwd = request.getParameter("pwd");
 	
-Connection conn = UserDBBean.getMySQLConnection();
+	UserDBBean db = UserDBBean.getinstance();
+	UserBean user = db.getUser(id);
+	int check = db.userCheck(id, pwd);
 	
-	String sql = "select * from Customer where cs_id = ?;";
-	
-	PreparedStatement pstmt =conn.prepareStatement(sql);
-	pstmt.setString(1, id);
-	ResultSet rs =pstmt.executeQuery();
-	rs.next();
-	String password = rs.getString("cs_pwd");
-	
-	UserDBBean.close(rs);
-	UserDBBean.close(pstmt);
-	UserDBBean.close(conn);
-	
-	if(password.equals(pwd)){
-		%>
+	//id가 존재하지 않음.
+	if(user == null){
+%>
 		<script>
-		alert("환영합니다.");
-		location.href="main.jsp";
+			alert("존재하지 않는 회원입니다.");
+			history.back();
 		</script>
-		<%
-	}else{
-		%>
-		<script>
-		alert("잘못된 정보입니다.");
-		location.href="login.jsp";
-		</script>
-		<%
-	}
+		
+<%
+	//id에 맞는 멤버는 있다.
+	}else{ 
+		String name = user.getCs_name();
+		String grade = user.getCs_grade();
+		
+		if(check == 1){ //id에 맞는 pw가 일치 
+			if(grade.equalsIgnoreCase("A")){
+				session.setAttribute("id", id);
+				session.setAttribute("name", name);
+				session.setAttribute("Member", "admin");
+			}else{
+				session.setAttribute("id", id);
+				session.setAttribute("name", name);
+				session.setAttribute("Member", "yes");
+			}
+			response.sendRedirect("index.jsp");
+		}else if(check == 0){	//id에 맞는 pw가 불일치
+%>
+			<script type="text/javascript">
+				alert("비밀번호가 틀렸습니다.");
+				history.go(-1); //(=history.back();)
+			</script>
+		
+<%
+		}else{
+%>
+			<script type="text/javascript">
+				alret("로그인 오류");
+				history.go(-1);
+			</script>
+<%		
+		}
+	}		
 %>
