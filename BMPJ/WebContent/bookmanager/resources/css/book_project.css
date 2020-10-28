@@ -122,7 +122,7 @@ header {
   letter-spacing: 3px;
 }
 
-#slide{height:500px;position:relative;overflow:hidden;}
+#slide{flex:4;height:500px;position:relative;overflow:hidden;}
   #slide ul{width:400%;height:100%;transition:1s;}
   #slide ul:after{content:"";display:block;clear:both;}
   #slide li{float:left;width:25%;height:100%;}
@@ -152,6 +152,8 @@ header {
 }
 /* section -book_display */
 .book_display {
+	display: flex;
+	align-items: center;
 }
 .container h3 {
   padding-left: 5px;
@@ -159,6 +161,7 @@ header {
   font-size: 20px;
 }
 .book_display_1 {
+  flex:1;
   border: 1px solid #999;
   height: 350px;
   width: 250px;
@@ -167,9 +170,8 @@ header {
   flex-direction: column;
 }
 .book_display_1 p img{
-  width: 200px;
+  width: 90%;
   height: 250px;
-  margin-right: 50px;
 }
 .book_display_1 dl {
   display: flex;

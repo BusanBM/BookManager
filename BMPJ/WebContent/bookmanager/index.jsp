@@ -12,7 +12,21 @@
   </head>
   <body>
     <jsp:include page="header.jsp"></jsp:include>
-    <main>
+    <section>
+      <div class="container">
+        <h3>오늘의 책</h3>
+        <div class="book_display">
+         <div class="book_display_1">
+             <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=2117070401">
+             <p><img src="resources/images/2117070401.jpg"/></p>
+             <dl>
+               <dt>해리포터1</dt>
+             </dl>
+             <dl>
+               <dd>J.K.롤링</dd>
+             </dl>
+            </a>
+         </div>
         <div id="slide">
            <input type="radio" name="pos" id="pos1" checked>
            <input type="radio" name="pos" id="pos2">
@@ -31,22 +45,7 @@
              <label for="pos4"></label>
            </p>
         </div>
-    </main>
-
-    <section>
-      <div class="container">
-        <h3>오늘의 책</h3>
-         <div class="book_display_1">
-             <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=2117070401">
-             <p><img src="resources/images/2117070401.jpg"/></p>
-             <dl>
-               <dt>해리포터1</dt>
-             </dl>
-             <dl>
-               <dd>J.K.롤링</dd>
-             </dl>
-            </a>
-         </div>
+        </div>
       </div>
     </section>
 
