@@ -17,8 +17,8 @@
         <h3>오늘의 책</h3>
         <div class="book_display">
          <div class="book_display_1">
-             <a href="detail_book.jsp?book_no=2117070401">
-             <p><img src="resources/images/2117070401.jpg"/></p>
+             <a href="detail_book.jsp?book_no=1117070401">
+             <p><img src="resources/images/1117070401.jpg"/></p>
              <dl>
                <dt>해리포터1</dt>
              </dl>
@@ -87,8 +87,8 @@
             </a>
           </div>
           <div class="book_display_2_1">
-            <a href="detail_book.jsp?book_no=2103010101">
-              <p><img src="resources/images/2103010101.jpg" /></p>
+            <a href="detail_book.jsp?book_no=1116050501">
+              <p><img src="resources/images/1116050501.jpg" /></p>
               <dl>
                 <dt>어린왕자</dt>
               </dl>

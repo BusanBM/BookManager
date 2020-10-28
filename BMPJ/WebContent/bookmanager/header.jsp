@@ -83,8 +83,8 @@ pageEncoding="UTF-8"%>
       <li>
         <a href="#">국내도서</a>
         <ul class="sub">
-          <li><a href="search_result.jsp?search_genre='01'">소설</a></li>
-          <li><a href="search_result.jsp?search_genre='02'">역사</a></li>
+          <li><a href="search_result.jsp?search_genre=01">소설</a></li>
+          <li><a href="search_result.jsp?search_genre=02">역사</a></li>
           <li><a href="search_result.jsp?search_genre=03">정치/인문</a></li>
           <li><a href="search_result.jsp?search_genre=04">예술</a></li>
           <li><a href="search_result.jsp?search_genre=05">과학</a></li>

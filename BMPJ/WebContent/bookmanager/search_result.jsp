@@ -104,7 +104,7 @@
             <tr>
               <td>
                 <div class="col-sm-3">
-                  <img src="..." class="img-thumbnail" />
+                  <img src="resources/images/<%=book.getB_no()%>.jpg" class="img-thumbnail" />
                 </div>
                 <div class="col-sm-7">
                   <div class="title"><%=b_title %></div>

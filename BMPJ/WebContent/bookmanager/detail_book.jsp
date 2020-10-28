@@ -33,10 +33,10 @@
     <section>
       <div class="container">
         <div class="main_cont">
-          <div class="book_image"><img src="./resource/images/<%=img%>"/></div>
+          <div class="book_image"><img src="resources/images/<%=book.getB_no()%>.jpg"/></div>
           <div class="detail_cont">
             <div class="detail_header">
-              <h1><%=book.getB_title()%></h1>
+              <h1><%=book.getB_title()%><%=book.getB_no()%></h1>
               <div class="detail_sm">
                 <div><%=book.getB_author()%></div>
                 <div><%=book.getB_genre()%></div>
