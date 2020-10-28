@@ -7,7 +7,7 @@
 
 	String search_word = request.getParameter("search_word");
 	String search_genre = request.getParameter("search_genre");
-	int genre = 0;
+	String genre = "";
 			
 	String currentPage = request.getParameter("currentPage");
 	if(currentPage == null){
@@ -19,7 +19,7 @@
 	if(search_word != null){
 		listBook  = db.listBoard(search_word,currentPage);
 	}else if(search_genre != null){
-		genre = Integer.parseInt(search_genre); 
+		genre = search_genre; 
 		listBook =  db.genreBoard(genre,currentPage);
 	}
 	
@@ -49,13 +49,24 @@
         	<%
           		}else if(search_genre != null){
           			String strGenre="";
-          			switch(genre){
-          			case 01: strGenre="소설"; break;
-          			case 02: strGenre="역사"; break;
-          			case 03: strGenre="정치"; break;
-          			case 04: strGenre="예술"; break;
-          			case 05: strGenre="과학"; break;
-          			case 06: strGenre="경제"; break;
+          			if(genre.equals("01")){
+          				strGenre="소설";
+          			}else if(genre.equals("02")){
+          				strGenre="역사";
+          			}else if(genre.equals("03")){
+          				strGenre="정치/인문";
+          			}else if(genre.equals("04")){
+          				strGenre="예술";
+          			}else if(genre.equals("05")){
+          				strGenre="과학";
+          			}else if(genre.equals("06")){
+          				strGenre="경제";
+          			}else if(genre.equals("07")){
+          				strGenre="해외도서";
+          			}else if(genre.equals("08")){
+          				strGenre="e-Book";
+          			}else if(genre.equals("09")){
+          				strGenre="웹소설";
           			}
         	%>
         	  	<%=strGenre%>카테고리 검색결과 입니다.

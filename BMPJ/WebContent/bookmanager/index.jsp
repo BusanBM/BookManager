@@ -17,7 +17,7 @@
         <h3>오늘의 책</h3>
         <div class="book_display">
          <div class="book_display_1">
-             <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=2117070401">
+             <a href="detail_book.jsp?book_no=2117070401">
              <p><img src="resources/images/2117070401.jpg"/></p>
              <dl>
                <dt>해리포터1</dt>
@@ -54,7 +54,7 @@
         <h3>베스트셀러</h3>
         <div class="book_display_2">
           <div class="book_display_2_1">
-             <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=1201080101">
+             <a href="detail_book.jsp?book_no=1201080101">
              <p><img src="resources/images/1201080101.jpg"/></p>
              <dl>
                <dt>난중일기</dt>
@@ -65,7 +65,7 @@
             </a>
           </div>
           <div class="book_display_2_1">
-          <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=1208050501">
+          <a href="detail_book.jsp?book_no=1208050501">
            <p><img src="resources/images/1208050501.jpg"/></p>
              <dl>
                <dt>나의문화유산답사기</dt>
@@ -76,7 +76,7 @@
             </a>
           </div>
           <div class="book_display_2_1">
-             <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=1208050501">
+             <a href="detail_book.jsp?book_no=1208050501">
               <p><img src="resources/images/1415040201.jpg"/></p>
               <dl>
                 <dt>예술하는습관</dt>
@@ -87,7 +87,7 @@
             </a>
           </div>
           <div class="book_display_2_1">
-            <a href="http://localhost:8081/BMPJ/bookmanager/detail_book.jsp?book_no=2103010101">
+            <a href="detail_book.jsp?book_no=2103010101">
               <p><img src="resources/images/2103010101.jpg" /></p>
               <dl>
                 <dt>어린왕자</dt>
